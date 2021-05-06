@@ -1,3 +1,1 @@
-# Rocket Academy Coding Bootcamp
-
-## Birding Express
+# Rocket Academy Coding Bootcamp: Birding Express
