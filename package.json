@@ -1,22 +1,22 @@
 {
-  "name": "birding-express-swe1",
+  "name": "birding-express-bootcamp",
   "version": "1.0.0",
-  "description": "# base-node-swe1",
+  "description": "# base-node-bootcamp",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rocketacademy/birding-express-swe1.git"
+    "url": "git+https://github.com/rocketacademy/birding-express-bootcamp.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rocketacademy/birding-express-swe1/issues"
+    "url": "https://github.com/rocketacademy/birding-express-bootcamp/issues"
   },
-  "homepage": "https://github.com/rocketacademy/birding-express-swe1#readme",
+  "homepage": "https://github.com/rocketacademy/birding-express-bootcamp#readme",
   "devDependencies": {
     "eslint": "^7.14.0",
     "eslint-config-airbnb-base": "^14.2.1",
