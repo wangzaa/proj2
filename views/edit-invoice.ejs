@@ -1,0 +1,70 @@
+<%- include ('partials/head') %> <%- include ('partials/navbar') %>
+
+<div class="container entry-form">
+  <div
+    class="row justify-content-center align-items-center"
+    style="height: 30vh"
+  >
+    <div class="col-12 col-md-10">
+      <div class="col-12 col-md-10">
+        <h2>Update Delivery Details</h2>
+
+        <div class="col-12">
+          <form
+            action="/invoice/<%=invoiceID %>/edit?_method=PUT"
+            method="POST"
+          >
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" for="delivery_date"
+                >Date/ Time :</label
+              >
+              <div class="col-md-10">
+                <input
+                  type="datetime-local"
+                  class="form-control"
+                  id="delivery_date"
+                  name="delivery_date"
+                />
+              </div>
+            </div>
+
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="mode_delivery"
+                id="mode_delivery1"
+                value="Delivery"
+              />
+              <label class="form-check-label" for="mode_delivery1">
+                Delivery
+              </label>
+            </div>
+
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="mode_delivery"
+                id="mode_delivery2"
+                value="Pick Up"
+              />
+              <label class="form-check-label" for="mode_delivery2">
+                Pick Up
+              </label>
+            </div>
+
+            <br />
+            <div class="form-group row justify-content-end">
+              <div class="col-md-2">
+                <button class="btn btn-lg btn-secondary" type="submit">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<body>
+  <nav
+    class="navbar navbar-expand-lg navbar-light"
+    style="background-color: darkgrey"
+  >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/login">P65</a>
+        <a class="nav-item nav-link" href="/">New Auction!</a>
+        <a class="nav-item nav-link" href="/delivery">Track Delivery</a>
+        <a class="nav-item nav-link" href="/admin-page0">Admin</a>
+        <form action="/logout?_method=DELETE" method="POST">
+          <button type="submit" class="btn btn-outline-dark btn btn-md">
+            Logout
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</body>

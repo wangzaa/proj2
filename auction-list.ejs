@@ -1,0 +1,41 @@
+<%- include ('partials/head') %> <%- include ('partials/navbar') %>
+
+<div class="container landing-page">
+  <h3>Order Details</h3>
+  <br />
+
+  <div class="table-responsive">
+    <table
+      class="table table-striped table-bordered table-sm"
+      cellspacing="0"
+      width="100%"
+    >
+    <thead>   
+    <tr>
+        <th>Vessel</th>
+        <th>Item</th>
+        <th>Total Price</th>
+        <th>Status</th>
+        <th>Mode</th>
+        <th>Delivery date</th>
+      </tr>
+      </thead>
+
+      <tbody>
+        <% for (let i = 0; i < pendingNotes.length; i += 1) { %>
+
+        <td><%= pendingNotes[i].vessel_name %></td>
+        <td><%= pendingNotes[i].species %> <%= pendingNotes[i].size %> <%= pendingNotes[i].qual %> </td>
+        <td><%= pendingNotes[i].price_total %></td>
+        <td><%= pendingNotes[i].status %></td>
+        <td><%= pendingNotes[i].mode_delivery %></td>
+        <td><%= pendingNotes[i].delivery_date.toLocaleDateString() %></td>
+      </tr>
+      <% } %>
+      </tbody>
+    </table>
+     <a href="/invoice" class="btn btn-secondary" role="button">Back</a>
+  </div>
+</div>
+<%- include ('partials/footer') %>
+

@@ -1,0 +1,60 @@
+<%- include ('partials/head') %> <%- include ('partials/navbar') %>
+
+<div class="container entry-form">
+  <div
+    class="row justify-content-center align-items-center"
+    style="height: 30vh"
+  >
+    <main>
+      <br />
+
+      <div class="container-fluid sign-up">
+        <div
+          class="row justify-content-center align-items-center"
+          style="height: 30vh"
+        >
+          <div class="col-12 col-md-10">
+            <form
+              class="entry-form-container"
+              style="background-color: rgba(211, 211, 211, 0.25)"
+              action="/login"
+              method="POST"
+            >
+              <h4>OTP Verification</h4>
+
+           <div class="row">
+                <div class="col-md-10">
+                  <div class="form-group">
+                    <label for="OTP">Mobile Number: </label>
+                    <input
+                      type="OTP"
+                      class="form-control"
+                      name="OTP"
+                      id="OTP"
+                    />
+                  </div>
+                  <input type="submit" value="Submit" />
+                  <br>
+                  <br>
+              <div class="row">
+                <div class="col-md-10">
+                  <div class="form-group">
+                    <label for="OTP">OTP: </label>
+                    <input
+                      type="OTP"
+                      class="form-control"
+                      name="OTP"
+                      id="OTP"
+                    />
+                       <br>
+                     <input type="submit" value="Submit" />
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

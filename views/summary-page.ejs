@@ -1,0 +1,50 @@
+<%- include ('partials/head') %> <%- include ('partials/navbar') %>
+
+<div class="container entry-form">
+  <div
+    class="row justify-content-center align-items-center"
+    style="width: 80vh"
+  >
+    <ul class="list-group list-group-flush">
+      <h3>Auction List</h3>
+
+      <form id="sort-section">
+        <select name="sorter" id="sorter">
+          <option value="species">Item</option>
+          <option value="species">Item Size</option>
+          <option value="qual">Grade</option>
+          <option value="qual">Vessel</option>
+        </select>
+        <button
+          class="btn btn-outline-secondary btn-sm"
+          input
+          type="submit"
+          id="sort-button"
+        >
+          Sort
+        </button>
+      </form>
+
+      <% for (let i = 0; i < auctionList.length; i += 1) { %>
+      <li class="list-group-item">
+        <div class="col-auto">
+          Item: <%= auctionList[i].species %> | <%= auctionList[i].size %> | <%=
+          auctionList[i].qual %>
+        </div>
+
+        <div class="col-auto">
+          Quantity(kg): <%= auctionList[i].weight %> | Each box: <%=
+          auctionList[i].box_size %> kg
+        </div>
+        <div class="col-auto">
+          Price/box: <%=Intl.NumberFormat('en-US', { style: 'currency',
+          currency: 'USD' }).format(auctionList[i].price_box ) %>
+        </div>
+        <div class="col-auto">Vessel: <%= auctionList[i].vessel_name %></div>
+      </li>
+      <% };%>
+    </ul>
+  </div>
+</div>
+
+<%- include ('partials/footer') %>

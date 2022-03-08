@@ -1,0 +1,70 @@
+<%- include ('partials/head') %> <%- include ('partials/navbar') %>
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="/admin-page0">Admin Login</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/admin-page1">Order Tracking</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/admin-page2">Upload Auction List</a>
+  </li>
+</ul>
+</ul>
+
+
+<main>
+  <br />
+
+  <div class="container-fluid sign-up">
+    <div
+      class="row justify-content-center align-items-center"
+      style="height: 30vh"
+    >
+      <div class="col-12 col-md-10">
+        <form
+          class="entry-form-container"
+          style="background-color: rgba(211, 211, 211, 0.25)"
+          action="/login"
+          method="POST"
+        >
+          <h2>Admin Log-in</h2>
+
+          <div class="row">
+            <div class="col-8">
+              <div class="form-group">
+                <label for="email">Email: </label>
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  id="email"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-8">
+              <div class="form-group">
+                <label for="password">Password: </label>
+                <input
+                  type="password"
+                  class="form-control"
+                  name="password"
+                  id="password"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-end">
+            <div class="col-12">
+              <button type="submit" class="btn btn-secondary">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
