@@ -1,0 +1,62 @@
+<%- include ('partials/head') %> <%- include ('partials/navbar') %>
+
+<main>
+  <br />
+
+  <div class="container-fluid sign-up">
+    <div
+      class="row justify-content-center align-items-center"
+      style="height: 30vh"
+    >
+      <div class="col-12 col-md-10">
+        <form
+          class="entry-form-container"
+          style="background-color: rgba(211, 211, 211, 0.25)"
+          action="/login"
+          method="POST"
+        >
+          <h2>Log-in</h2>
+
+          <div class="row">
+            <div class="col-8">
+              <div class="form-group">
+                <label for="email">Email: </label>
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  id="email"
+                  placeholder="Email"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-8">
+              <div class="form-group">
+                <label for="password">Password: </label>
+                <input
+                  type="password"
+                  class="form-control"
+                  name="password"
+                  id="password"
+                  placeholder="Password"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-end">
+            <div class="col-12">
+              <button type="submit" class="btn btn-secondary">Submit</button>
+            </div>
+          </div>
+          <br />
+          <a class="text-secondary" href="/signup">New user? Please sign up</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
