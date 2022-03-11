@@ -4,7 +4,8 @@
   "description": "# base-node-bootcamp",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
@@ -25,8 +26,17 @@
   },
   "type": "module",
   "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "datatables": "^1.10.18",
+    "dotenv": "^16.0.0",
     "ejs": "^3.1.5",
-    "express": "^4.17.1",
-    "pg": "^8.5.1"
+    "express": "^4.17.3",
+    "fast-csv": "^4.3.6",
+    "jssha": "^3.2.0",
+    "mdb-ui-kit": "^3.10.2",
+    "method-override": "^3.0.0",
+    "multer": "^1.4.4",
+    "pg": "^8.7.3",
+    "twilio": "^3.75.1"
   }
 }
