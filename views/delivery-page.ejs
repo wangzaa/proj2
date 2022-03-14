@@ -1,20 +1,26 @@
 <%- include ('partials/head') %> <%- include ('partials/navbar') %>
 
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" href="/admin-page1">Customer Orders</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="/delivery">Deliveries</a>
+  </li>
+</ul>
+
 <div class="row justify-content-center">
   <div class="card px-0" style="width: 90vw">
-    <h3>Track your deliveries</h3>
+    <h3>Delivery Tracking</h3>
 
     <div class="table-responsive">
-      <table
-        class="table table-striped table-bordered table-sm"
-        cellspacing="0"
-        width="100%"
-      >
+      <table class="table table-striped">
         <tr>
           <th>Status</th>
           <th>Invoice No.</th>
           <th>Delivery Date</th>
-          <th>Action</th>
+          <th>Delivery Mode</th>
+          <th></th>
         </tr>
 
         <% for (let i = 0; i< deliveryNotes.length; i +=1){ %>
@@ -28,12 +34,10 @@
           <td>
             <%=deliveryNotes[i].delivery_date.toLocaleDateString('en-GB') %>
           </td>
+          <td><%=deliveryNotes[i].mode_delivery %></td>
           <td>
-            <a
-              class="btn btn-outline-secondary"
-              href="/invoice/<%=deliveryNotes[i].delivery_number %>/edit"
-              role="button"
-              >Update</a
+            <a href="/invoice/<%=deliveryNotes[i].delivery_number %>/edit"
+              >📝</a
             >
           </td>
         </tr>

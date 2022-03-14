@@ -17,13 +17,21 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-item nav-link" href="/login">P65</a>
-        <a class="nav-item nav-link" href="/">New Auction!</a>
-        <a class="nav-item nav-link" href="/delivery">Track Delivery</a>
-        <a class="nav-item nav-link" href="/admin-page0">Admin</a>
-        <form action="/logout?_method=DELETE" method="POST">
-          <button type="submit" class="btn btn-outline-dark btn btn-md">
-            Logout
-          </button>
+        <a class="nav-item nav-link" href="/admin-page2">Update Auction</a>
+         <a class="nav-item nav-link" href="/admin-page3">Auction List</a>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/admin-page1" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           Tracker
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li> <a class="nav-item nav-link" href="/admin-page1">Customer View</a></li>
+            <li><a class="nav-item nav-link" href="/delivery">Delivery View</a></li>
+          </ul>
+        </li>
+   
+        <a class = "btn btn-outline-dark btn btn-md" href = "/logout" role = "button">Log-out</a>
+          
         </form>
       </div>
     </div>
