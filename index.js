@@ -47,11 +47,6 @@ app.use(methodOverride('_method'));
 app.use(cookieParser());
 app.use(sessionAuth);
 
-// renders login page with OTP
-app.get('/', (req, res) => {
-  res.render('login');
-});
-
 // #################### Helper Functions ####################
 
 // Return a promise to an invoice
@@ -101,6 +96,11 @@ function getInvoiceAndSum(invoiceId) {
 }
 
 // #################### App Routes ####################
+
+// renders login page
+app.get('/', (req, res) => {
+  res.render('welcome');
+});
 
 // displays single invoice
 app.get('/invoice/:id', (req, res) => {

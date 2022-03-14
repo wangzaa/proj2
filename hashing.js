@@ -2,7 +2,7 @@
 import jsSHA from 'jssha';
 
 // SALT
-const SALT = process.env.MY_ENV_VAR;
+const SALT = 'scully';
 
 // Hashing function
 export const getHash = (input) => {
