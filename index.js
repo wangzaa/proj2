@@ -221,18 +221,22 @@ app.get('/admin-page1', (req, res) => getPendingInvoices()
   // eslint-disable-next-line max-len
   .then((pendingInvoices) => Promise.all(pendingInvoices.rows.map((invoice) => getInvoiceAndSum(invoice.delivery_number))))
   .then((results) => {
-    const invoices = results.map((result) => {
-      const [pendingInvoices, invoiceSum] = result;
-      const invoiceList = pendingInvoices.rows;
-      console.log(invoiceList);
-      const invoiceTotal = invoiceSum.rows;
-      console.log(invoiceTotal);
-      return { invoiceList, invoiceTotal };
-    });
-    console.table(invoices);
-    console.table(invoices[2]);
-    console.table(invoices[3]);
-    res.render('admin-page1', { invoices });
+    if (req.isUserLoggedIn === false) {
+      res.redirect('/login');
+    } else {
+      const invoices = results.map((result) => {
+        const [pendingInvoices, invoiceSum] = result;
+        const invoiceList = pendingInvoices.rows;
+        console.log(invoiceList);
+        const invoiceTotal = invoiceSum.rows;
+        console.log(invoiceTotal);
+        return { invoiceList, invoiceTotal };
+      });
+      console.table(invoices);
+      console.table(invoices[2]);
+      console.table(invoices[3]);
+      res.render('admin-page1', { invoices });
+    }
   }));
 
 // renders admin page2
@@ -246,20 +250,23 @@ app.get('/admin-page2', (req, res) => {
 
 // post data from admin page2
 app.post('/admin-page2', multerUpload.single('file'), (req, res) => {
-  console.log('request came in');
-  console.log(req.file.filename);
-  const fileID = req.file.filename;
-  const stream = fs.createReadStream(`uploads/${fileID}`);
-  const csvData = [];
-  const csvStream = fastcsv
-    .parse()
-    .on('data', (data) => {
-      csvData.push(data);
-    })
-    .on('end', () => {
-    // remove the first line: header
-      csvData.shift();
-      const query = `INSERT INTO auction_list (
+  if (req.isUserLoggedIn === false) {
+    res.redirect('/login');
+  } else {
+    console.log('request came in');
+    console.log(req.file.filename);
+    const fileID = req.file.filename;
+    const stream = fs.createReadStream(`uploads/${fileID}`);
+    const csvData = [];
+    const csvStream = fastcsv
+      .parse()
+      .on('data', (data) => {
+        csvData.push(data);
+      })
+      .on('end', () => {
+        // remove the first line: header
+        csvData.shift();
+        const query = `INSERT INTO auction_list (
                            id,
                            vessel_name,
                            species,
@@ -271,26 +278,27 @@ app.post('/admin-page2', multerUpload.single('file'), (req, res) => {
                            created_at)
 VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`;
 
-      pool.connect((err, client, done) => {
-        if (err) throw err;
-        try {
-          csvData.forEach((row) => {
-            client.query(query, row, (err, res) => {
-              if (err) {
-                console.log(err.stack);
-              } else {
-                console.log(`inserted ${res.rowCount} row:`, row);
-              }
+        pool.connect((err, client, done) => {
+          if (err) throw err;
+          try {
+            csvData.forEach((row) => {
+              client.query(query, row, (err, res) => {
+                if (err) {
+                  console.log(err.stack);
+                } else {
+                  console.log(`inserted ${res.rowCount} row:`, row);
+                }
+              });
             });
-          });
-        } finally {
-          done();
-        }
+          } finally {
+            done();
+          }
+        });
       });
-    });
-  stream.pipe(csvStream);
+    stream.pipe(csvStream);
 
-  res.redirect('/admin-page3');
+    res.redirect('/admin-page3');
+  }
 });
 
 // renders admin page3
